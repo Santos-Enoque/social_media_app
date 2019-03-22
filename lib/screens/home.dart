@@ -67,11 +67,28 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-          )
+          ),
+
+          ListTile(
+            title: Row(
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: AssetImage("imagens/mulher.jpg"),
+                  radius: 18.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Text("Mary Smith", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),),
+                ),
+              ],
+            ),
+            subtitle: Image.asset("imagens/mulher.jpg"),
+            trailing: IconButton(icon: Icon(Icons.person_add, color: Theme.of(context).primaryColor,), onPressed: (){}),
+          ),
         ],
       ),
 
-      floatingActionButton: FloatingActionButton(onPressed: (){},  child: Icon(Icons.camera), backgroundColor: Colors.red,),
+      floatingActionButton: FloatingActionButton(onPressed: (){},  child: Icon(Icons.camera_alt), backgroundColor: Colors.red,),
     );
   }
 }
