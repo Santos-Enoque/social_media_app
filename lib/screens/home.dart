@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../componentes/post.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -23,9 +24,7 @@ class _HomeState extends State<Home> {
             child: TextField(
               controller: _pesquisaController,
               decoration: InputDecoration(
-                  hintText: "Procurar...",
-                  border: InputBorder.none
-              ),
+                  hintText: "Procurar...", border: InputBorder.none),
             ),
           ),
         ),
@@ -39,9 +38,7 @@ class _HomeState extends State<Home> {
           IconButton(
               icon: Icon(
                 Icons.chat_bubble_outline,
-                color: Theme
-                    .of(context)
-                    .primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
               onPressed: () {})
         ],
@@ -52,12 +49,28 @@ class _HomeState extends State<Home> {
             color: Colors.white,
             child: Row(
               children: <Widget>[
-                Expanded(child: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.home, color: Colors.grey,),)),
-                Expanded(child: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.rss_feed, color: Colors.grey,),)),
-                Expanded(child: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.notifications), color: Colors.grey,)),
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.grey,
+                  ),
+                )),
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.rss_feed,
+                    color: Colors.grey,
+                  ),
+                )),
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.notifications),
+                  color: Colors.grey,
+                )),
                 Padding(
                   padding: const EdgeInsets.only(right: 20.0),
                   child: CircleAvatar(
@@ -68,27 +81,20 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-
-          ListTile(
-            title: Row(
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: AssetImage("imagens/mulher.jpg"),
-                  radius: 18.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0),
-                  child: Text("Mary Smith", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),),
-                ),
-              ],
-            ),
-            subtitle: Image.asset("imagens/mulher.jpg"),
-            trailing: IconButton(icon: Icon(Icons.person_add, color: Theme.of(context).primaryColor,), onPressed: (){}),
-          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 3,
+                itemBuilder: (_, index){
+              return Post();
+            }),
+          )
         ],
       ),
-
-      floatingActionButton: FloatingActionButton(onPressed: (){},  child: Icon(Icons.camera_alt), backgroundColor: Colors.red,),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.camera_alt),
+        backgroundColor: Colors.red,
+      ),
     );
   }
 }
